@@ -1,0 +1,65 @@
+{
+  "name": "namox",
+  "private": true,
+  "version": "0.0.0",
+  "description": "a Sails application",
+  "keywords": [],
+  "dependencies": {
+    "@sailshq/connect-redis": "^3.2.1",
+    "@sailshq/lodash": "^3.10.3",
+    "@sailshq/socket.io-redis": "^5.2.0",
+    "bootstrap": "^4.5.2",
+    "grunt": "1.0.4",
+    "react": "^16.13.1",
+    "react-checkbox-tree": "^1.6.0",
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "sails": "^1.2.4",
+    "sails-hook-grunt": "^4.0.0",
+    "sails-hook-orm": "^2.1.1",
+    "sails-hook-sockets": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "eslint": "5.16.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^4.3.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.1"
+  },
+  "scripts": {
+    "start": "NODE_ENV=production node app.js",
+    "test": "npm run lint && npm run custom-tests && echo 'Done.'",
+    "lint": "./node_modules/eslint/bin/eslint.js . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
+    "custom-tests": "echo \"(No other custom tests yet.)\" && echo",
+    "start:dev": "npm-run-all --parallel open:client dev",
+    "start:debug": "npm-run-all --parallel open:client debug",
+    "open:client": "webpack-dev-server --open --content-base=dist --history-api-fallback",
+    "build": "npm run build:prod",
+    "build:dev": "webpack",
+    "build:prod": "webpack --config assets/config/webpack.prod",
+    "clean": "rimraf .tmp && mkdirp .tmp/public",
+    "prod": "sails lift --prod",
+    "dev": "sails lift --dev",
+    "debug": "node --inspect app.js"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/uts-eresearch/namox.git"
+  },
+  "author": "Moises sacal",
+  "license": "GPL-3.0",
+  "engines": {
+    "node": "^12.13"
+  }
+}
